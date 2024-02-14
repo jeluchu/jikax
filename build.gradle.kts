@@ -1,4 +1,5 @@
 plugins {
+    id("maven-publish")
     kotlin("jvm") version "1.9.22"
     id("org.jetbrains.dokka") version "0.10.1"
 }
@@ -39,5 +40,17 @@ tasks {
     dokka {
         outputFormat = "html"
         outputDirectory = "$rootDir/docs"
+    }
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "com.github.jeluchu"
+            artifactId = "jikax"
+            version = "0.0.2"
+
+            from(components["kotlin"])
+        }
     }
 }
