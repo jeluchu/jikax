@@ -14,7 +14,7 @@ repositories {
 }
 
 group = "com.jeluchu.jikax"
-version = "0.2.0"
+version = "0.2.2"
 
 dependencies {
     implementation(libs.bundles.gson)
@@ -48,7 +48,7 @@ publishing {
         create<MavenPublication>("maven") {
             groupId = "com.github.jeluchu"
             artifactId = "jikax"
-            version = "0.2.0"
+            version = "0.2.2"
 
             from(components["kotlin"])
         }

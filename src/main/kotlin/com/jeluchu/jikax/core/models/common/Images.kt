@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 /**
  * Images data class.
  */
-data class Images(
+open class Images(
     /**
      * Images for jpg image type.
      */

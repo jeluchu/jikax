@@ -8,7 +8,7 @@ import com.jeluchu.jikax.core.utils.zero
 /**
  * Person  data class.
  */
-data class Person(
+open class Person(
     /**
      * ID associated with MyAnimeList.
      */

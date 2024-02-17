@@ -8,7 +8,7 @@ import com.jeluchu.jikax.models.staff.Person
 /**
  * Characters data class.
  */
-data class CharacterInfo(
+open class CharacterInfo(
     /**
      * Character generic info
      * @see Person

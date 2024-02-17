@@ -15,7 +15,7 @@ import com.jeluchu.jikax.models.search.Search
 import com.jeluchu.jikax.models.staff.Staff
 
 object Jikax {
-    private var restClient = RestClient()
+    var restClient = RestClient()
     private val gson = GsonBuilder().registerTypeAdapter(
         Entity::class.java, InterfaceAdapter<Entity>()
     ).create()

@@ -7,7 +7,7 @@ import com.jeluchu.jikax.models.staff.Person
 /**
  * VoiceActor data class.
  */
-data class VoiceActor(
+open class VoiceActor(
     /**
      * Person generic info
      * @see Person

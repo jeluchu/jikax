@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 /**
  * PersonInfo data class.
  */
-data class StaffInfo(
+open class StaffInfo(
     /**
      * Character generic info
      * @see Person
