@@ -7,10 +7,12 @@ import com.jeluchu.jikax.core.utils.deserialize
 import com.jeluchu.jikax.models.anime.Anime
 import com.jeluchu.jikax.models.anime.AnimeData
 import com.jeluchu.jikax.models.base.Entity
+import com.jeluchu.jikax.models.character.Characters
 import com.jeluchu.jikax.models.schedule.Day
 import com.jeluchu.jikax.models.schedule.Schedule
 import com.jeluchu.jikax.models.schedule.ScheduleData
 import com.jeluchu.jikax.models.search.Search
+import com.jeluchu.jikax.models.staff.Staff
 
 object Jikax {
     private var restClient = RestClient()
@@ -51,6 +53,28 @@ object Jikax {
             }
         }
     }
+
+    /**
+     * Function to get staff of anime by it's MyAnimeList id
+     * @param id: MyAnimeList id of the anime.
+     * @return List of staff in anime.
+     */
+    suspend fun getStaff(id: Int) =
+        gson.deserialize<Staff>(
+            restClient.request("anime/$id/staff"),
+            Staff::class.java
+        ).data
+
+    /**
+     * Function to get characters of anime by it's MyAnimeList id
+     * @param id: MyAnimeList id of the anime.
+     * @return List of characters in anime.
+     */
+    suspend fun getCharacters(id: Int) =
+        gson.deserialize<Characters>(
+            restClient.request("anime/$id/characters"),
+            Characters::class.java
+        ).data
 
     /**
      * Function to get all anime schedule in this season.

@@ -68,6 +68,20 @@ class AnimeTests {
         runBlocking { delay(3000) }
     }
 
+    @Test
+    fun `on getStaff pass a query and return list of staff`() {
+        val result = runBlocking { Jikax.getStaff(9253) }
+        assertTrue(result.isNotEmpty())
+        runBlocking { delay(3000) }
+    }
+
+    @Test
+    fun `on getCharacters pass a query and return list of characters`() {
+        val result = runBlocking { Jikax.getCharacters(9253) }
+        assertTrue(result.isNotEmpty())
+        runBlocking { delay(3000) }
+    }
+
     companion object {
         @BeforeAll
         @JvmStatic

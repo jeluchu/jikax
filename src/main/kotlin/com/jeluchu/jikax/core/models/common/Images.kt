@@ -10,11 +10,11 @@ data class Images(
      * Images for jpg image type.
      */
     @SerializedName("jpg")
-    val jpg: ImageFormat,
+    val jpg: ImageFormat = ImageFormat(),
 
     /**
      * Images for webp image type.
      */
     @SerializedName("webp")
-    val webp: ImageFormat
+    val webp: ImageFormat = ImageFormat()
 )
