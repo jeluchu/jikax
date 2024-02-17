@@ -6,12 +6,13 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 import com.jeluchu.jikax.core.models.enums.AnimeType
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 
 class AnimeTests {
     @Test
-    fun `test anime with correct ID`() {
+    fun `on getAnime pass a query and return animes data`() {
         val expected = com.jeluchu.jikax.models.anime.AnimeData(
             malId = 9253,
             url = "https://myanimelist.net/anime/9253/Steins_Gate",
@@ -57,6 +58,13 @@ class AnimeTests {
         assertEquals(expected.malId, result.malId)
         assertEquals(expected.titles, result.titles)
         assertEquals(expected.status, result.status)
+        runBlocking { delay(3000) }
+    }
+
+    @Test
+    fun `on getSearchAnime pass a query and return list of animes`() {
+        val result = runBlocking { Jikax.getSearchAnime("Steins;Gate") }
+        assertTrue(result.isNotEmpty())
         runBlocking { delay(3000) }
     }
 

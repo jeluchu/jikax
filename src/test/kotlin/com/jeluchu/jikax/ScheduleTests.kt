@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test
 
 class ScheduleTests {
     @Test
-    fun `om get current schedule`() {
+    fun `on getSchedule and return animes on air in the week`() {
         val result = runBlocking { Jikax.getSchedule() }
         assert(!result.monday.isNullOrEmpty())
         assert(!result.tuesday.isNullOrEmpty())
@@ -20,7 +20,7 @@ class ScheduleTests {
     }
 
     @Test
-    fun `test get friday schedule`() {
+    fun `on getSchedule with a Friday query and return animes on air in day`() {
         val result = runBlocking { Jikax.getSchedule(Day.FRIDAY) }
         assert(!result.isNullOrEmpty())
         runBlocking { delay(3000) }
