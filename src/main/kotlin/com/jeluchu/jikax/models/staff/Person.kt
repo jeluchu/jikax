@@ -4,7 +4,6 @@ import com.google.gson.annotations.SerializedName
 import com.jeluchu.jikax.core.models.common.Images
 import com.jeluchu.jikax.core.utils.empty
 import com.jeluchu.jikax.core.utils.zero
-import com.jeluchu.jikax.models.anime.AnimeData
 
 /**
  * Person  data class.

@@ -2,10 +2,10 @@ package com.jeluchu.jikax.models.anime
 
 import com.google.gson.annotations.SerializedName
 import com.jeluchu.jikax.core.models.common.Images
-import com.jeluchu.jikax.models.base.Entity
-import com.jeluchu.jikax.models.base.MalEntity
 import com.jeluchu.jikax.core.models.enums.AnimeType
 import com.jeluchu.jikax.core.models.enums.Season
+import com.jeluchu.jikax.models.base.Entity
+import com.jeluchu.jikax.models.base.MalEntity
 
 /**
  * AnimeInfo data class.
@@ -35,7 +35,7 @@ data class AnimeData(
      * @see Trailer for the detail.
      */
     @SerializedName("trailer")
-    val trailer: com.jeluchu.jikax.models.anime.Trailer? = null,
+    val trailer: Trailer? = null,
 
     /**
      * When entry is pending approval on MAL.
@@ -48,7 +48,7 @@ data class AnimeData(
      * @see Title for the detail.
      */
     @SerializedName("titles")
-    val titles: List<com.jeluchu.jikax.models.anime.Title>? = null,
+    val titles: List<Title>? = null,
 
     /**
      * Title of the anime.
@@ -116,7 +116,7 @@ data class AnimeData(
      * @return null if there's none
      */
     @SerializedName("aired")
-    val aired: com.jeluchu.jikax.models.anime.Aired? = null,
+    val aired: Aired? = null,
 
     /**
      * Duration per episode.
@@ -196,21 +196,21 @@ data class AnimeData(
      * @see Broadcast for the detail.
      */
     @SerializedName("broadcast")
-    val broadcast: com.jeluchu.jikax.models.anime.Broadcast? = null,
+    val broadcast: Broadcast? = null,
 
     /**
      * List of producers of this anime.
      * @see Producer for the detail.
      */
     @SerializedName("producers")
-    val producers: List<com.jeluchu.jikax.models.anime.Producer?>? = null,
+    val producers: List<Producer?>? = null,
 
     /**
      * List of licensors of this anime.
      * @see Licensor for the detail.
      */
     @SerializedName("licensors")
-    val licensors: List<com.jeluchu.jikax.models.anime.Licensor?>? = null,
+    val licensors: List<Licensor?>? = null,
 
     /**
      * List of studios of this anime.
@@ -218,61 +218,61 @@ data class AnimeData(
      *
      */
     @SerializedName("studios")
-    val studios: List<com.jeluchu.jikax.models.anime.Studio?>? = null,
+    val studios: List<Studio?>? = null,
 
     /**
      * List of genre of this anime.
      * @see Genre for the detail.
      */
     @SerializedName("genres")
-    val genres: List<com.jeluchu.jikax.models.anime.Genre?>? = null,
+    val genres: List<Genre?>? = null,
 
     /**
      * List of explicit genre of this anime.
      * @see ExplicitGenre for the detail.
      */
     @SerializedName("explicit_genres")
-    val explicitGenres: List<com.jeluchu.jikax.models.anime.ExplicitGenre?>? = null,
+    val explicitGenres: List<ExplicitGenre?>? = null,
 
     /**
      * List of themes of this anime.
      * @see Themes for the detail.
      */
     @SerializedName("themes")
-    val themes: List<com.jeluchu.jikax.models.anime.Themes?>? = null,
+    val themes: List<Themes?>? = null,
 
     /**
      * Demographic of this anime.
      * @see Demographic for the detail.
      */
     @SerializedName("demographics")
-    val demographics: List<com.jeluchu.jikax.models.anime.Demographic?>? = null,
+    val demographics: List<Demographic?>? = null,
 
     /**
      * Relation of this anime.
      * @see Relation for the detail.
      */
     @SerializedName("relations")
-    val relations: List<com.jeluchu.jikax.models.anime.Relation?>? = null,
+    val relations: List<Relation?>? = null,
 
     /**
      * Theme of this anime.
      * @see Theme for the detail.
      */
     @SerializedName("theme")
-    val theme: com.jeluchu.jikax.models.anime.Theme? = null,
+    val theme: Theme? = null,
 
     /**
      * Theme of this anime.
      * @see External for the detail.
      */
     @SerializedName("external")
-    val external: List<com.jeluchu.jikax.models.anime.External>? = null,
+    val external: List<External>? = null,
 
     /**
      * Theme of this anime.
      * @see Streaming for the detail.
      */
     @SerializedName("streaming")
-    val streaming: List<com.jeluchu.jikax.models.anime.Streaming>? = null
+    val streaming: List<Streaming>? = null
 ) : Entity(), MalEntity

@@ -12,5 +12,5 @@ data class Schedule(
      * Data for anime requested.
      */
     @SerializedName("data")
-    val data: List<com.jeluchu.jikax.models.anime.AnimeData?>? = null,
+    val data: List<AnimeData>,
 )

@@ -10,11 +10,11 @@ data class Theme(
      * List of endings.
      */
     @SerializedName("endings")
-    val endings: List<String>,
+    val endings: List<String> = emptyList(),
 
     /**
      * List of openings.
      */
     @SerializedName("openings")
-    val openings: List<String>
+    val openings: List<String> = emptyList()
 )

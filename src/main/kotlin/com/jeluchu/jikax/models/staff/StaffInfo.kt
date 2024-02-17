@@ -1,19 +1,18 @@
 package com.jeluchu.jikax.models.staff
 
 import com.google.gson.annotations.SerializedName
-import com.jeluchu.jikax.models.staff.Person
 
 
 /**
  * PersonInfo data class.
  */
-data class PersonInfo(
+data class StaffInfo(
     /**
      * Character generic info
      * @see Person
      */
     @SerializedName("person")
-    val person: Person,
+    val person: Person = Person(),
 
     /**
      * Request hast next page or not.
