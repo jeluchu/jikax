@@ -27,7 +27,7 @@ object Jikax {
      */
     suspend fun getAnime(id: Int) =
         gson.deserialize<Anime>(
-            restClient.request("anime/$id"),
+            restClient.request("anime/$id/full"),
             Anime::class.java
         ).data
 
