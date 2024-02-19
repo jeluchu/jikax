@@ -1,4 +1,4 @@
-package com.jeluchu.jikax.models.base
+package com.jeluchu.jikax.core.models.base
 
 interface MalEntity {
     /**
