@@ -1,6 +1,7 @@
 package com.jeluchu.jikax.models.anime
 
 import com.google.gson.annotations.SerializedName
+import com.jeluchu.jikax.core.models.common.ImageFormat
 import com.jeluchu.jikax.core.utils.empty
 
 /**
@@ -23,5 +24,11 @@ data class Trailer(
      * Youtube id for trailer.
      */
     @SerializedName("youtube_id")
-    val youtubeId: String = String.empty()
+    val youtubeId: String = String.empty(),
+
+    /**
+     * Images for trailer.
+     */
+    @SerializedName("images")
+    val images: ImageFormat = ImageFormat()
 )

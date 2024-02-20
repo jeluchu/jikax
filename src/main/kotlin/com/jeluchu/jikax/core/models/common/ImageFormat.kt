@@ -10,6 +10,12 @@ data class ImageFormat(
     @SerializedName("small_image_url")
     val small: String = String.empty(),
 
+    @SerializedName("medium_image_url")
+    val medium: String = String.empty(),
+
     @SerializedName("large_image_url")
-    val large: String = String.empty()
+    val large: String = String.empty(),
+
+    @SerializedName("maximum_image_url")
+    val maximum: String = String.empty()
 )
