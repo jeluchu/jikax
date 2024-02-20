@@ -2,7 +2,6 @@ package com.jeluchu.jikax.models.character
 
 import com.google.gson.annotations.SerializedName
 
-
 /**
  * Characters data class.
  */

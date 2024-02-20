@@ -1,7 +1,6 @@
 package com.jeluchu.jikax.models.anime
 
 import com.google.gson.annotations.SerializedName
-import com.jeluchu.jikax.core.utils.empty
 
 /**
  * Prop data class.
@@ -12,18 +11,18 @@ data class Prop(
      * @see DateProp for the detail.
      */
     @SerializedName("from")
-    val from: DateProp = DateProp(),
+    val from: DateProp?,
 
     /**
      * String with date.
      */
     @SerializedName("string")
-    val string: String = String.empty(),
+    val string: String?,
 
     /**
      * End date.
      * @see DateProp for the detail.
      */
     @SerializedName("to")
-    val to: DateProp = DateProp()
+    val to: DateProp?
 )

@@ -5,16 +5,16 @@ import com.google.gson.annotations.SerializedName
 /**
  * Images data class.
  */
-open class Images(
+data class Images(
     /**
      * Images for jpg image type.
      */
     @SerializedName("jpg")
-    val jpg: ImageFormat = ImageFormat(),
+    val jpg: ImageFormat?,
 
     /**
      * Images for webp image type.
      */
     @SerializedName("webp")
-    val webp: ImageFormat = ImageFormat()
+    val webp: ImageFormat?
 )

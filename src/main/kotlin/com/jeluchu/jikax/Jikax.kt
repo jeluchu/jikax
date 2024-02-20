@@ -6,7 +6,7 @@ import com.jeluchu.jikax.core.utils.InterfaceAdapter
 import com.jeluchu.jikax.core.utils.deserialize
 import com.jeluchu.jikax.models.anime.Anime
 import com.jeluchu.jikax.models.anime.AnimeData
-import com.jeluchu.jikax.models.base.Entity
+import com.jeluchu.jikax.core.models.base.Entity
 import com.jeluchu.jikax.models.character.Characters
 import com.jeluchu.jikax.models.schedule.Day
 import com.jeluchu.jikax.models.schedule.Schedule
@@ -15,7 +15,7 @@ import com.jeluchu.jikax.models.search.Search
 import com.jeluchu.jikax.models.staff.Staff
 
 object Jikax {
-    var restClient = RestClient()
+    private var restClient = RestClient()
     private val gson = GsonBuilder().registerTypeAdapter(
         Entity::class.java, InterfaceAdapter<Entity>()
     ).create()
@@ -43,7 +43,7 @@ object Jikax {
         )
 
         return response.data.toMutableList().apply {
-            for (page in 2..response.pagination.lastPage) {
+            for (page in 2..(response.pagination.lastPage ?: 2)) {
                 addAll(
                     gson.deserialize<Search>(
                         restClient.request("anime?q=$anime&page=$page"),
@@ -87,7 +87,7 @@ object Jikax {
         thursday = getSchedule(Day.THURSDAY),
         friday = getSchedule(Day.FRIDAY),
         saturday = getSchedule(Day.SATURDAY),
-        sunday = getSchedule(Day.SATURDAY)
+        sunday = getSchedule(Day.SUNDAY)
     )
 
     /**

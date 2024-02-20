@@ -6,17 +6,17 @@ import com.google.gson.annotations.SerializedName
 /**
  * PersonInfo data class.
  */
-open class StaffInfo(
+data class StaffInfo(
     /**
      * Character generic info
      * @see Person
      */
     @SerializedName("person")
-    val person: Person = Person(),
+    val person: Person?,
 
     /**
      * Request hast next page or not.
      */
     @SerializedName("positions")
-    val positions: List<String> = emptyList()
+    val positions: List<String>?
 )

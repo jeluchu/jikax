@@ -1,4 +1,4 @@
-package com.jeluchu.jikax.models.base
+package com.jeluchu.jikax.core.models.base
 
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable

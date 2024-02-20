@@ -5,17 +5,17 @@ import com.jeluchu.jikax.core.utils.empty
 
 data class ImageFormat(
     @SerializedName("image_url")
-    val generic: String = String.empty(),
+    val generic: String?,
 
     @SerializedName("small_image_url")
-    val small: String = String.empty(),
+    val small: String?,
 
     @SerializedName("medium_image_url")
-    val medium: String = String.empty(),
+    val medium: String?,
 
     @SerializedName("large_image_url")
-    val large: String = String.empty(),
+    val large: String?,
 
     @SerializedName("maximum_image_url")
-    val maximum: String = String.empty()
+    val maximum: String?
 )

@@ -1,8 +1,6 @@
 package com.jeluchu.jikax.models.anime
 
 import com.google.gson.annotations.SerializedName
-import com.jeluchu.jikax.core.utils.empty
-import com.jeluchu.jikax.core.utils.zero
 
 /**
  * Genre data class.
@@ -12,23 +10,23 @@ data class Genre(
      * ID associated with MyAnimeList.
      */
     @SerializedName("mal_id")
-    val malId: Int = Int.zero(),
+    val malId: Int?,
 
     /**
      * Name for genre.
      */
     @SerializedName("name")
-    val name: String = String.empty(),
+    val name: String?,
 
     /**
      * Type for genre.
      */
     @SerializedName("type")
-    val type: String = String.empty(),
+    val type: String?,
 
     /**
      * Url for genre.
      */
     @SerializedName("url")
-    val url: String = String.empty()
+    val url: String?
 )
