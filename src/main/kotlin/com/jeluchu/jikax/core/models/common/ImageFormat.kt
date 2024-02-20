@@ -1,7 +1,6 @@
 package com.jeluchu.jikax.core.models.common
 
 import com.google.gson.annotations.SerializedName
-import com.jeluchu.jikax.core.utils.empty
 
 data class ImageFormat(
     @SerializedName("image_url")
