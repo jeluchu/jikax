@@ -12,5 +12,5 @@ data class Schedule(
      * Data for anime requested.
      */
     @SerializedName("data")
-    val data: List<AnimeData>,
+    val data: List<AnimeData>
 )

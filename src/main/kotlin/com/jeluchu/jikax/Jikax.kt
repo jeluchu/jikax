@@ -99,4 +99,33 @@ object Jikax {
             restClient.request("schedules/${day.name.lowercase()}"),
             Schedule::class.java
         ).data
+
+    /**
+     * Function to get all anime ranking .
+     * @return List of anime in order by rank.
+     */
+    suspend fun getAnimeTop(
+        filter: String? = null,
+        rating: String? = null,
+        sfw: Boolean? = null,
+        page: Int? = null,
+        limit: Int? = null
+    ): List<AnimeData> {
+        val endpoint = "top/anime"
+        val params = mutableListOf<String>()
+
+        filter?.let { params.add("filter=$it") }
+        rating?.let { params.add("rating=$it") }
+        sfw?.let { params.add("sfw=$it") }
+        page?.let { params.add("page=$it") }
+        limit?.let { params.add("page=$it") }
+
+        val fullEndpoint = if (params.isNotEmpty()) "$endpoint?${params.joinToString("&")}"
+        else endpoint
+
+        return gson.deserialize<Schedule>(
+            restClient.request(fullEndpoint),
+            Schedule::class.java
+        ).data
+    }
 }
