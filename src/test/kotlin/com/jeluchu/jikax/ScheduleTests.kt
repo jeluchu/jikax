@@ -22,7 +22,7 @@ class ScheduleTests {
     @Test
     fun `on getSchedule with a Friday query and return animes on air in day`() {
         val result = runBlocking { Jikax.getSchedule(Day.FRIDAY) }
-        assert(result.isNotEmpty())
+        assert(result.data.isNotEmpty())
         runBlocking { delay(3000) }
     }
 }

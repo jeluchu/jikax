@@ -22,7 +22,7 @@ class AnimeTests {
     @Test
     fun `on getSearchAnime pass a query and return list of animes`() {
         val result = runBlocking { Jikax.getSearchAnime("Steins;Gate") }
-        assertTrue(result.isNotEmpty())
+        assertTrue(result.data.isNotEmpty())
         runBlocking { delay(3000) }
     }
 
