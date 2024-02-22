@@ -15,7 +15,7 @@ class AnimeTests {
 
         val result = runBlocking { Jikax.getAnime(9253) }
         assertEquals(malId, result.malId)
-        assertEquals(title, result.titles)
+        assertEquals(title, result.title)
         runBlocking { delay(3000) }
     }
 
@@ -37,6 +37,13 @@ class AnimeTests {
     fun `on getCharacters pass a query and return list of characters`() {
         val result = runBlocking { Jikax.getCharacters(9253) }
         assertTrue(result.isNotEmpty())
+        runBlocking { delay(3000) }
+    }
+
+    @Test
+    fun `on getRandomAnime and return random anime information`() {
+        val result = runBlocking { Jikax.getRandomAnime() }
+        assertTrue(result.malId != 0)
         runBlocking { delay(3000) }
     }
 
