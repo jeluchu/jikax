@@ -1,7 +1,6 @@
 package com.jeluchu.jikax.models.anime
 
 import com.google.gson.annotations.SerializedName
-import com.jeluchu.jikax.core.models.base.MalEntity
 import com.jeluchu.jikax.core.models.common.Images
 import com.jeluchu.jikax.core.models.enums.AnimeType
 import com.jeluchu.jikax.core.models.enums.Season
@@ -15,7 +14,7 @@ data class AnimeData(
      * ID associated with MyAnimeList.
      */
     @SerializedName("mal_id")
-    override val malId: Int,
+    val malId: Int?,
 
     /**
      * Anime's MyAnimeList link.
@@ -275,4 +274,4 @@ data class AnimeData(
      */
     @SerializedName("streaming")
     val streaming: List<Streaming>?
-) : Entity(), MalEntity
+) : Entity()
