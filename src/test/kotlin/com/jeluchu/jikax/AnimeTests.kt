@@ -47,6 +47,18 @@ class AnimeTests {
         runBlocking { delay(3000) }
     }
 
+    @Test
+    fun `on getAnimeStats pass a query and return anime statistics`() {
+        val result = runBlocking { Jikax.getAnimeStatistics(9253) }
+        assertTrue(result?.total != 0)
+    }
+
+    @Test
+    fun `on getAnimeStats pass a non exist query and return anime statistics`() {
+        val result = runBlocking { Jikax.getAnimeStatistics(64586474) }
+        assertTrue(result != null)
+    }
+
     companion object {
         @BeforeAll
         @JvmStatic

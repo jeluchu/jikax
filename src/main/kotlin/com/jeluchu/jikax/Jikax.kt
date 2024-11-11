@@ -13,6 +13,7 @@ import com.jeluchu.jikax.core.models.enums.TopFilter
 import com.jeluchu.jikax.core.utils.InterfaceAdapter
 import com.jeluchu.jikax.core.utils.deserialize
 import com.jeluchu.jikax.models.anime.Anime
+import com.jeluchu.jikax.models.anime.AnimeStatistics
 import com.jeluchu.jikax.models.character.Characters
 import com.jeluchu.jikax.models.schedule.Day
 import com.jeluchu.jikax.models.schedule.Schedule
@@ -345,4 +346,15 @@ object Jikax {
             Search::class.java
         )
     }
+
+    /**
+     * Function to get anime stats
+     * @return Information for Anime Statistics.
+     */
+    suspend fun getAnimeStatistics(id: Int) =
+        gson.deserialize<AnimeStatistics>(
+            restClient.request("anime/${id}/statistics"),
+            AnimeStatistics::class.java
+        ).data
+
 }
