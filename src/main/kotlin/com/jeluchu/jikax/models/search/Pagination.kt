@@ -1,32 +1,34 @@
 package com.jeluchu.jikax.models.search
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * Pagination data class.
  */
+@Serializable
 data class Pagination(
     /**
      * Current page available.
      */
-    @SerializedName("current_page")
-    val currentPage: Int?,
+    @SerialName("current_page")
+    val currentPage: Int? = null,
 
     /**
      * Last page available.
      */
-    @SerializedName("last_visible_page")
-    val lastPage: Int?,
+    @SerialName("last_visible_page")
+    val lastPage: Int? = null,
 
     /**
      * Items information.
      */
-    @SerializedName("items")
-    val itemsPage: ItemsPage?,
+    @SerialName("items")
+    val itemsPage: ItemsPage? = null,
 
     /**
      * Request hast next page or not.
      */
-    @SerializedName("has_next_page")
-    val hasNextPage: Boolean?
+    @SerialName("has_next_page")
+    val hasNextPage: Boolean? = null
 )

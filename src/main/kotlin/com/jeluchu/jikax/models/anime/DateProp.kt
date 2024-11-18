@@ -1,26 +1,28 @@
 package com.jeluchu.jikax.models.anime
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * DateProp data class.
  */
+@Serializable
 data class DateProp(
     /**
      * Day in date.
      */
-    @SerializedName("day")
-    val day: Int?,
+    @SerialName("day")
+    val day: Int? = null,
 
     /**
      * Month in date.
      */
-    @SerializedName("month")
-    val month: Int?,
+    @SerialName("month")
+    val month: Int? = null,
 
     /**
      * Year in date.
      */
-    @SerializedName("year")
-    val year: Int?
+    @SerialName("year")
+    val year: Int? = null
 )

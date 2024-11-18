@@ -1,8 +1,6 @@
 package com.jeluchu.jikax
 
-import com.google.gson.GsonBuilder
 import com.jeluchu.jikax.core.connection.RestClient
-import com.jeluchu.jikax.core.models.base.Entity
 import com.jeluchu.jikax.core.models.enums.Orders
 import com.jeluchu.jikax.core.models.enums.Rating
 import com.jeluchu.jikax.core.models.enums.SearchAnimeType
@@ -10,8 +8,6 @@ import com.jeluchu.jikax.core.models.enums.SeasonType
 import com.jeluchu.jikax.core.models.enums.Sort
 import com.jeluchu.jikax.core.models.enums.State
 import com.jeluchu.jikax.core.models.enums.TopFilter
-import com.jeluchu.jikax.core.utils.InterfaceAdapter
-import com.jeluchu.jikax.core.utils.deserialize
 import com.jeluchu.jikax.models.anime.Anime
 import com.jeluchu.jikax.models.character.Characters
 import com.jeluchu.jikax.models.schedule.Day
@@ -23,9 +19,6 @@ import com.jeluchu.jikax.models.staff.Staff
 
 object Jikax {
     private var restClient = RestClient()
-    private val gson = GsonBuilder().registerTypeAdapter(
-        Entity::class.java, InterfaceAdapter<Entity>()
-    ).create()
 
     /**
      * Function to get anime by it's MyAnimeList id
@@ -33,20 +26,14 @@ object Jikax {
      * @return Anime with given MyAnimeList id.
      */
     suspend fun getAnime(id: Int) =
-        gson.deserialize<Anime>(
-            restClient.request("anime/$id/full"),
-            Anime::class.java
-        ).data
+        restClient.request("anime/$id/full", Anime.serializer()).data
 
     /**
      * Function to get random anime
      * @return Random Anime information.
      */
     suspend fun getRandomAnime() =
-        gson.deserialize<Anime>(
-            restClient.request("random/anime"),
-            Anime::class.java
-        ).data
+        restClient.request("random/anime", Anime.serializer()).data
 
     /**
      * Function to get search animes by name
@@ -124,10 +111,7 @@ object Jikax {
         val fullEndpoint = if (params.isNotEmpty()) "$endpoint?${params.joinToString("&")}"
         else endpoint
 
-        return gson.deserialize(
-            restClient.request(fullEndpoint),
-            Search::class.java
-        )
+        return restClient.request(fullEndpoint, Search.serializer())
     }
 
     /**
@@ -136,10 +120,7 @@ object Jikax {
      * @return List of staff in anime.
      */
     suspend fun getStaff(id: Int) =
-        gson.deserialize<Staff>(
-            restClient.request("anime/$id/staff"),
-            Staff::class.java
-        ).data
+        restClient.request("anime/$id/staff", Staff.serializer()).data
 
     /**
      * Function to get characters of anime by it's MyAnimeList id
@@ -147,10 +128,7 @@ object Jikax {
      * @return List of characters in anime.
      */
     suspend fun getCharacters(id: Int) =
-        gson.deserialize<Characters>(
-            restClient.request("anime/$id/characters"),
-            Characters::class.java
-        ).data
+        restClient.request("anime/$id/characters", Characters.serializer()).data
 
     /**
      * Function to get all anime schedule in this season.
@@ -172,10 +150,7 @@ object Jikax {
      * @return List of anime that airing on that day.
      */
     suspend fun getSchedule(day: Day) =
-        gson.deserialize<Schedule>(
-            restClient.request("schedules/${day.name.lowercase()}"),
-            Schedule::class.java
-        )
+        restClient.request("schedules/${day.name.lowercase()}", Schedule.serializer())
 
     /**
      * Function to get all anime ranking.
@@ -209,21 +184,14 @@ object Jikax {
         val fullEndpoint = if (params.isNotEmpty()) "$endpoint?${params.joinToString("&")}"
         else endpoint
 
-        return gson.deserialize(
-            restClient.request(fullEndpoint),
-            Search::class.java
-        )
+        return restClient.request(fullEndpoint, Search.serializer())
     }
 
     /**
      * Function to get all seasons.
      * @return List of year and seasons.
      */
-    suspend fun getSeasons() =
-        gson.deserialize<Seasons>(
-            restClient.request("seasons"),
-            Seasons::class.java
-        )
+    suspend fun getSeasons() = restClient.request("seasons", Seasons.serializer())
 
     /**
      * Function to get all animes in current season.
@@ -258,10 +226,7 @@ object Jikax {
         val fullEndpoint = if (params.isNotEmpty()) "$endpoint?${params.joinToString("&")}"
         else endpoint
 
-        return gson.deserialize(
-            restClient.request(fullEndpoint),
-            Search::class.java
-        )
+        return restClient.request(fullEndpoint, Search.serializer())
     }
 
     /**
@@ -301,10 +266,7 @@ object Jikax {
         val fullEndpoint = if (params.isNotEmpty()) "$endpoint?${params.joinToString("&")}"
         else endpoint
 
-        return gson.deserialize(
-            restClient.request(fullEndpoint),
-            Search::class.java
-        )
+        return restClient.request(fullEndpoint, Search.serializer())
     }
 
     /**
@@ -340,9 +302,6 @@ object Jikax {
         val fullEndpoint = if (params.isNotEmpty()) "$endpoint?${params.joinToString("&")}"
         else endpoint
 
-        return gson.deserialize(
-            restClient.request(fullEndpoint),
-            Search::class.java
-        )
+        return restClient.request(fullEndpoint, Search.serializer())
     }
 }

@@ -1,15 +1,17 @@
 package com.jeluchu.jikax.models.anime
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * Anime data class.
  */
+@Serializable
 data class Anime(
 
     /**
      * Data for anime requested.
      */
-    @SerializedName("data")
+    @SerialName("data")
     val data: AnimeData
 )

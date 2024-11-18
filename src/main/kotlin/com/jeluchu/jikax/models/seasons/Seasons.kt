@@ -1,21 +1,23 @@
 package com.jeluchu.jikax.models.seasons
 
-import com.google.gson.annotations.SerializedName
 import com.jeluchu.jikax.models.search.Pagination
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * Season data class.
  */
+@Serializable
 data class Seasons(
     /**
      * Pagination info for request
      */
-    @SerializedName("pagination")
+    @SerialName("pagination")
     val pagination: Pagination,
 
     /**
      * Data list of all anime found.
      */
-    @SerializedName("data")
+    @SerialName("data")
     val data: List<SeasonInfo>
 )

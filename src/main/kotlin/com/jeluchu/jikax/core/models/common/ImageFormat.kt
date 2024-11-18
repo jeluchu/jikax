@@ -1,20 +1,22 @@
 package com.jeluchu.jikax.core.models.common
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class ImageFormat(
-    @SerializedName("image_url")
-    val generic: String?,
+    @SerialName("image_url")
+    val generic: String? = null,
 
-    @SerializedName("small_image_url")
-    val small: String?,
+    @SerialName("small_image_url")
+    val small: String? = null,
 
-    @SerializedName("medium_image_url")
-    val medium: String?,
+    @SerialName("medium_image_url")
+    val medium: String? = null,
 
-    @SerializedName("large_image_url")
-    val large: String?,
+    @SerialName("large_image_url")
+    val large: String? = null,
 
-    @SerializedName("maximum_image_url")
-    val maximum: String?
+    @SerialName("maximum_image_url")
+    val maximum: String? = null
 )

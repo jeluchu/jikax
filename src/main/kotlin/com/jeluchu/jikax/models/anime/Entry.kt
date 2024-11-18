@@ -1,32 +1,34 @@
 package com.jeluchu.jikax.models.anime
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * Entry data class.
  */
+@Serializable
 data class Entry(
     /**
      * ID associated with MyAnimeList.
      */
-    @SerializedName("mal_id")
-    val malId: Int?,
+    @SerialName("mal_id")
+    val malId: Int? = null,
 
     /**
      * Name for entry.
      */
-    @SerializedName("name")
-    val name: String?,
+    @SerialName("name")
+    val name: String? = null,
 
     /**
      * Type for entry.
      */
-    @SerializedName("type")
-    val type: String?,
+    @SerialName("type")
+    val type: String? = null,
 
     /**
      * Url for entry.
      */
-    @SerializedName("url")
-    val url: String?
+    @SerialName("url")
+    val url: String? = null
 )

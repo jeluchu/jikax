@@ -1,20 +1,22 @@
 package com.jeluchu.jikax.core.models.common
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * Images data class.
  */
+@Serializable
 data class Images(
     /**
      * Images for jpg image type.
      */
-    @SerializedName("jpg")
-    val jpg: ImageFormat?,
+    @SerialName("jpg")
+    val jpg: ImageFormat? = null,
 
     /**
      * Images for webp image type.
      */
-    @SerializedName("webp")
-    val webp: ImageFormat?
+    @SerialName("webp")
+    val webp: ImageFormat? = null
 )

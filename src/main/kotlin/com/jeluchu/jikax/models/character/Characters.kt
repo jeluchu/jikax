@@ -1,14 +1,16 @@
 package com.jeluchu.jikax.models.character
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * Characters data class.
  */
+@Serializable
 data class Characters(
     /**
      * Data list of all staff found.
      */
-    @SerializedName("data")
+    @SerialName("data")
     val data: List<CharacterInfo>
 )

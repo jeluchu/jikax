@@ -1,26 +1,28 @@
 package com.jeluchu.jikax.models.anime
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * Aired data class.
  */
+@Serializable
 data class Aired(
     /**
      * Start date in ISO8601 format.
      */
-    @SerializedName("from")
-    val from: String?,
+    @SerialName("from")
+    val from: String? = null,
 
     /**
      * @see Prop for the detail.
      */
-    @SerializedName("prop")
-    val prop: Prop?,
+    @SerialName("prop")
+    val prop: Prop? = null,
 
     /**
      * End date in ISO8601 format.
      */
-    @SerializedName("to")
-    val to: String?
+    @SerialName("to")
+    val to: String? = null
 )

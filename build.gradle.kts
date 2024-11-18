@@ -1,7 +1,8 @@
 plugins {
     id("maven-publish")
-    kotlin("jvm") version "1.9.22"
+    kotlin("jvm") version "2.0.21"
     id("org.jetbrains.dokka") version "0.10.1"
+    kotlin("plugin.serialization") version "2.0.21"
 }
 
 repositories {
@@ -17,7 +18,6 @@ group = "com.jeluchu.jikax"
 version = "0.6.1"
 
 dependencies {
-    implementation(libs.bundles.gson)
     implementation(libs.bundles.ktor)
     implementation(libs.bundles.logger)
     testImplementation(libs.jupiter.junit.api)
@@ -48,7 +48,7 @@ publishing {
         create<MavenPublication>("maven") {
             groupId = "com.github.jeluchu"
             artifactId = "jikax"
-            version = "0.6.1"
+            version = "0.7.0"
 
             from(components["kotlin"])
         }

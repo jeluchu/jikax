@@ -1,22 +1,23 @@
 package com.jeluchu.jikax.models.staff
 
-import com.google.gson.annotations.SerializedName
-
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * PersonInfo data class.
  */
+@Serializable
 data class StaffInfo(
     /**
      * Character generic info
      * @see Person
      */
-    @SerializedName("person")
-    val person: Person?,
+    @SerialName("person")
+    val person: Person? = null,
 
     /**
      * Request hast next page or not.
      */
-    @SerializedName("positions")
-    val positions: List<String>?
+    @SerialName("positions")
+    val positions: List<String>? = null
 )

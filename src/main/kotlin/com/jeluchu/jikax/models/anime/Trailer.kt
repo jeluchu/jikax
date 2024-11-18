@@ -1,33 +1,35 @@
 package com.jeluchu.jikax.models.anime
 
-import com.google.gson.annotations.SerializedName
 import com.jeluchu.jikax.core.models.common.ImageFormat
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * Trailer data class.
  */
+@Serializable
 data class Trailer(
     /**
      * Embed url for trailer.
      */
-    @SerializedName("embed_url")
-    val embedUrl: String?,
+    @SerialName("embed_url")
+    val embedUrl: String? = null,
 
     /**
      * Url for trailer.
      */
-    @SerializedName("url")
-    val url: String?,
+    @SerialName("url")
+    val url: String? = null,
 
     /**
      * Youtube id for trailer.
      */
-    @SerializedName("youtube_id")
-    val youtubeId: String?,
+    @SerialName("youtube_id")
+    val youtubeId: String? = null,
 
     /**
      * Images for trailer.
      */
-    @SerializedName("images")
-    val images: ImageFormat?
+    @SerialName("images")
+    val images: ImageFormat? = null
 )

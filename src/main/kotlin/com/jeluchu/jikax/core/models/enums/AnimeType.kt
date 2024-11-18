@@ -1,11 +1,34 @@
 package com.jeluchu.jikax.core.models.enums
 
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+
+@Serializable
 enum class AnimeType {
-    All,
+    @SerialName("TV")
     TV,
+
+    @SerialName("Movie")
+    MOVIE,
+
+    @SerialName("OVA")
     OVA,
-    Movie,
-    Special,
+
+    @SerialName("Special")
+    SPECIAL,
+
+    @SerialName("ONA")
     ONA,
-    Music
+
+    @SerialName("Music")
+    MUSIC,
+
+    @SerialName("CM")
+    CM,
+
+    @SerialName("PV")
+    PV,
+
+    @SerialName("TV Special")
+    TV_SPECIAL
 }

@@ -1,32 +1,34 @@
 package com.jeluchu.jikax.models.anime
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * Broadcast data class.
  */
+@Serializable
 data class Broadcast(
     /**
      * Day in broadcast.
      */
-    @SerializedName("day")
-    val day: String?,
+    @SerialName("day")
+    val day: String? = null,
 
     /**
      * String date in broadcast.
      */
-    @SerializedName("string")
-    val string: String?,
+    @SerialName("string")
+    val string: String? = null,
 
     /**
      * Time date in broadcast.
      */
-    @SerializedName("time")
-    val time: String?,
+    @SerialName("time")
+    val time: String? = null,
 
     /**
      * Timezone in broadcast.
      */
-    @SerializedName("timezone")
-    val timezone: String?
+    @SerialName("timezone")
+    val timezone: String? = null
 )

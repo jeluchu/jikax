@@ -1,46 +1,36 @@
 package com.jeluchu.jikax.core.connection
 
-import com.google.gson.Gson
-import com.google.gson.JsonElement
-import com.google.gson.JsonObject
 import com.jeluchu.jikax.core.client.JikanClient
 import com.jeluchu.jikax.core.exception.JikanException
 import com.jeluchu.jikax.core.utils.Log
-import io.ktor.client.call.body
 import io.ktor.client.request.get
+import io.ktor.client.statement.bodyAsText
 import io.ktor.http.HttpHeaders
 import io.ktor.http.headers
+import kotlinx.serialization.DeserializationStrategy
+import kotlinx.serialization.json.Json
 
 /**
  * Class that handle request.
  * @param isDebug: a boolean that indicate if you run it on debug or not. If yes, it'll throw exception if something happen.
  * @param url: Custom URL, will use default (Jikan URL) if null or empty.
  */
-class RestClient(private val isDebug: Boolean = false, private val url: String? = null) : JikanClient() {
-    private val gson = Gson()
+class RestClient(
+    private val url: String? = null,
+    private val isDebug: Boolean = false
+) : JikanClient() {
     private val client = httpClient
+    private val json = Json { ignoreUnknownKeys = true }
     private val usedURL = if (url.isNullOrEmpty()) BASE_URL else url
 
-    suspend fun request(endPoint: String, data: JsonObject? = null): JsonElement {
-        runCatching {
-            var url = usedURL + endPoint
-            if (data != null) {
-                url += "?" + data.entrySet().joinToString("&") { entry ->
-                    "${entry.key}=${entry.value}"
-                }
+    suspend fun <T> request(
+        endPoint: String,
+        deserializer: DeserializationStrategy<T>
+    ): T {
+        return runCatching {
+            val response = client.get(usedURL + endPoint) {
+                headers { append(HttpHeaders.Accept, "application/json") }
             }
-
-            val response = client.get(url) {
-                headers {
-                    append(HttpHeaders.Accept, "application/json")
-                }
-            }
-
-            val body = response.body<JsonElement>()
-            val contentType = response.headers["Content-Type"]
-            val json = if (contentType?.equals("application/json", true) == true) {
-                gson.fromJson(body, JsonElement::class.java)
-            } else null
 
             if (response.status.value !in 200..299) {
                 if (response.status.value in 500..599) {
@@ -48,23 +38,21 @@ class RestClient(private val isDebug: Boolean = false, private val url: String? 
                     if (isDebug) throw ex else exceptionHandler(ex)
                 } else {
                     val ex = JikanException(
-                        "Jikan API returns code ${response.status.value} and body ${json?.toString()}",
+                        "Jikan API returns code ${response.status.value} and body ${response.bodyAsText()}",
                         response.status.value
                     )
 
-                    if (isDebug) throw ex
-                    else exceptionHandler(ex)
+                    if (isDebug) throw ex else exceptionHandler(ex)
                 }
             }
 
-            return json ?: JsonObject()
+            json.decodeFromString(deserializer, response.bodyAsText())
         }.getOrElse { throwable -> throw throwable }
     }
 
-    private fun exceptionHandler(ex: Exception, message: String? = null) : JsonObject {
+    private fun exceptionHandler(ex: Exception, message: String? = null) {
         if (message.isNullOrEmpty()) Log.error("Something went wrong! Exception: ${ex.localizedMessage}")
         else Log.error(ex, "Something went wrong! Exception: ${ex.localizedMessage}")
-        return JsonObject()
     }
 
     companion object {

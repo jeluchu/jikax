@@ -1,33 +1,35 @@
 package com.jeluchu.jikax.models.staff
 
-import com.google.gson.annotations.SerializedName
 import com.jeluchu.jikax.core.models.common.Images
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * Person  data class.
  */
+@Serializable
 data class Person(
     /**
      * ID associated with MyAnimeList.
      */
-    @SerializedName("mal_id")
-    val malId: Int?,
+    @SerialName("mal_id")
+    val malId: Int? = null,
 
     /**
      * Link to person in MAL.
      */
-    @SerializedName("url")
-    val url: String?,
+    @SerialName("url")
+    val url: String? = null,
 
     /**
      * Name of person.
      */
-    @SerializedName("name")
-    val name: String?,
+    @SerialName("name")
+    val name: String? = null,
 
     /**
      * Request hast next page or not.
      */
-    @SerializedName("images")
-    val images: Images?
+    @SerialName("images")
+    val images: Images? = null
 )

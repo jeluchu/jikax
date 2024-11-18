@@ -1,20 +1,22 @@
 package com.jeluchu.jikax.models.anime
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * Theme data class.
  */
+@Serializable
 data class Theme(
     /**
      * List of endings.
      */
-    @SerializedName("endings")
-    val endings: List<String>?,
+    @SerialName("endings")
+    val endings: List<String>? = null,
 
     /**
      * List of openings.
      */
-    @SerializedName("openings")
-    val openings: List<String>?
+    @SerialName("openings")
+    val openings: List<String>? = null
 )

@@ -1,26 +1,28 @@
 package com.jeluchu.jikax.models.search
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * ItemsPage data class.
  */
+@Serializable
 data class ItemsPage(
     /**
      * Count page.
      */
-    @SerializedName("count")
-    val count: Int?,
+    @SerialName("count")
+    val count: Int? = null,
 
     /**
      * Total items availables.
      */
-    @SerializedName("total")
-    val total: Int?,
+    @SerialName("total")
+    val total: Int? = null,
 
     /**
      * Total items per page.
      */
-    @SerializedName("per_page")
-    val itemsPerPage: Int?
+    @SerialName("per_page")
+    val itemsPerPage: Int? = null
 )

@@ -1,22 +1,22 @@
 package com.jeluchu.jikax.models.seasons
 
-import com.google.gson.annotations.SerializedName
-import com.jeluchu.jikax.models.anime.AnimeData
-import com.jeluchu.jikax.models.search.Pagination
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * Season data class.
  */
+@Serializable
 data class SeasonInfo(
     /**
      * Year for season
      */
-    @SerializedName("year")
-    val year: Int?,
+    @SerialName("year")
+    val year: Int? = null,
 
     /**
      * Seasons in the year
      */
-    @SerializedName("seasons")
-    val seasons: List<String>?
+    @SerialName("seasons")
+    val seasons: List<String>? = null
 )

@@ -1,20 +1,22 @@
 package com.jeluchu.jikax.models.anime
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * Title data class.
  */
+@Serializable
 data class Title(
     /**
      * Title for anime.
      */
-    @SerializedName("title")
-    val title: String?,
+    @SerialName("title")
+    val title: String? = null,
 
     /**
      * Title type for anime.
      */
-    @SerializedName("type")
-    val type: String?
+    @SerialName("type")
+    val type: String? = null
 )

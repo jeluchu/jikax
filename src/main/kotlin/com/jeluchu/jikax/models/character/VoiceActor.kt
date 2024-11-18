@@ -1,22 +1,24 @@
 package com.jeluchu.jikax.models.character
 
-import com.google.gson.annotations.SerializedName
 import com.jeluchu.jikax.models.staff.Person
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * VoiceActor data class.
  */
+@Serializable
 data class VoiceActor(
     /**
      * Person generic info
      * @see Person
      */
-    @SerializedName("person")
-    val person: Person?,
+    @SerialName("person")
+    val person: Person? = null,
 
     /**
      * Language of the person.
      */
-    @SerializedName("language")
-    val language: String?
+    @SerialName("language")
+    val language: String? = null
 )

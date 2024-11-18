@@ -1,20 +1,22 @@
 package com.jeluchu.jikax.models.anime
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 /**
  * External data class.
  */
+@Serializable
 data class External(
     /**
      * Name of external info.
      */
-    @SerializedName("name")
-    val name: String?,
+    @SerialName("name")
+    val name: String? = null,
 
     /**
      * Url of external info.
      */
-    @SerializedName("url")
-    val url: String?
+    @SerialName("url")
+    val url: String? = null
 )

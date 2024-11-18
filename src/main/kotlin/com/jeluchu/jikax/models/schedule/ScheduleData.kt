@@ -1,49 +1,50 @@
 package com.jeluchu.jikax.models.schedule
 
-import com.google.gson.annotations.SerializedName
 import com.jeluchu.jikax.models.anime.AnimeData
-import com.jeluchu.jikax.core.models.base.Entity
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class ScheduleData(
     /**
      * All current season entries scheduled for Monday.
      */
-    @SerializedName("monday")
-    val monday: List<AnimeData>?,
+    @SerialName("monday")
+    val monday: List<AnimeData>? = null,
 
     /**
      * All current season entries scheduled for Tuesday.
      */
-    @SerializedName("tuesday")
-    val tuesday: List<AnimeData>?,
+    @SerialName("tuesday")
+    val tuesday: List<AnimeData>? = null,
 
     /**
      * All current season entries scheduled for Wednesday.
      */
-    @SerializedName("wednesday")
-    val wednesday: List<AnimeData>?,
+    @SerialName("wednesday")
+    val wednesday: List<AnimeData>? = null,
 
     /**
      * All current season entries scheduled for Thursday.
      */
-    @SerializedName("thursday")
-    val thursday: List<AnimeData>?,
+    @SerialName("thursday")
+    val thursday: List<AnimeData>? = null,
 
     /**
      * All current season entries scheduled for Friday.
      */
-    @SerializedName("friday")
-    val friday: List<AnimeData>?,
+    @SerialName("friday")
+    val friday: List<AnimeData>? = null,
 
     /**
      * All current season entries scheduled for Saturday.
      */
-    @SerializedName("saturday")
-    val saturday: List<AnimeData>?,
+    @SerialName("saturday")
+    val saturday: List<AnimeData>? = null,
 
     /**
      * All current season entries scheduled for Sunday.
      */
-    @SerializedName("sunday")
-    val sunday: List<AnimeData>?
-) : Entity()
+    @SerialName("sunday")
+    val sunday: List<AnimeData>? = null
+)
