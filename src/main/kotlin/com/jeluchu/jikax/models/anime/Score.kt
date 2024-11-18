@@ -1,14 +1,16 @@
 package com.jeluchu.jikax.models.anime
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class Score(
-    @SerializedName("percentage")
+    @SerialName("percentage")
     val percentage: Double,
 
-    @SerializedName("score")
+    @SerialName("score")
     val score: Int,
 
-    @SerializedName("votes")
+    @SerialName("votes")
     val votes: Int
 )

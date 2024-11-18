@@ -56,7 +56,7 @@ class AnimeTests {
     @Test
     fun `on getAnimeStats pass a non exist query and return anime statistics`() {
         val result = runBlocking { Jikax.getAnimeStatistics(64586474) }
-        assertTrue(result != null)
+        assertTrue(result == null)
     }
 
     companion object {

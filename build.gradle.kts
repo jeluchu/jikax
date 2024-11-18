@@ -48,7 +48,7 @@ publishing {
         create<MavenPublication>("maven") {
             groupId = "com.github.jeluchu"
             artifactId = "jikax"
-            version = "0.7.0"
+            version = "0.8.0"
 
             from(components["kotlin"])
         }

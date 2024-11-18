@@ -1,31 +1,34 @@
 package com.jeluchu.jikax.models.anime
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class AnimeStatistics(
-    @SerializedName("data")
-    val data: Statistics?
+    @SerialName("data")
+    val data: Statistics? = null
 ) {
+    @Serializable
     data class Statistics(
-        @SerializedName("completed")
-        val completed: Int?,
+        @SerialName("completed")
+        val completed: Int? = null,
 
-        @SerializedName("dropped")
-        val dropped: Int?,
+        @SerialName("dropped")
+        val dropped: Int? = null,
 
-        @SerializedName("on_hold")
-        val onHold: Int?,
+        @SerialName("on_hold")
+        val onHold: Int? = null,
 
-        @SerializedName("plan_to_watch")
-        val planToWatch: Int?,
+        @SerialName("plan_to_watch")
+        val planToWatch: Int? = null,
 
-        @SerializedName("scores")
-        val scores: List<Score>?,
+        @SerialName("scores")
+        val scores: List<Score>? = null,
 
-        @SerializedName("total")
-        val total: Int?,
+        @SerialName("total")
+        val total: Int? = null,
 
-        @SerializedName("watching")
-        val watching: Int?
+        @SerialName("watching")
+        val watching: Int? = null
     )
 }
