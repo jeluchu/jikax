@@ -59,6 +59,18 @@ class AnimeTests {
         assertTrue(result == null)
     }
 
+    @Test
+    fun `on getAnimeEpisodes pass a query and return anime episodes`() {
+        val result = runBlocking { Jikax.getAnimeEpisodes(9253) }
+        assertTrue(result?.isNotEmpty() == true)
+    }
+
+    @Test
+    fun `on getAnimeEpisodes pass a non exist query and return anime episodes`() {
+        val result = runBlocking { Jikax.getAnimeEpisodes(64586474) }
+        assertTrue(result?.isEmpty() == true)
+    }
+
     companion object {
         @BeforeAll
         @JvmStatic
