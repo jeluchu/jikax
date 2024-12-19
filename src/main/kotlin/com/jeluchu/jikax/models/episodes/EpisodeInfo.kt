@@ -1,35 +1,37 @@
 package com.jeluchu.jikax.models.episodes
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class EpisodeInfo(
-    @SerializedName("aired")
-    val aired: String?,
+    @SerialName("aired")
+    val aired: String? = null,
 
-    @SerializedName("filler")
-    val filler: Boolean?,
+    @SerialName("filler")
+    val filler: Boolean? = null,
 
-    @SerializedName("forum_url")
-    val forum_url: String?,
+    @SerialName("forum_url")
+    val forumUrl: String? = null,
 
-    @SerializedName("mal_id")
-    val mal_id: Int?,
+    @SerialName("mal_id")
+    val malId: Int? = null,
 
-    @SerializedName("recap")
-    val recap: Boolean?,
+    @SerialName("recap")
+    val recap: Boolean? = null,
 
-    @SerializedName("score")
-    val score: Double?,
+    @SerialName("score")
+    val score: Double? = null,
 
-    @SerializedName("title")
-    val title: String?,
+    @SerialName("title")
+    val title: String? = null,
 
-    @SerializedName("title_japanese")
-    val titleJapanese: String?,
+    @SerialName("title_japanese")
+    val titleJapanese: String? = null,
 
-    @SerializedName("title_romanji")
-    val titleRomanji: String?,
+    @SerialName("title_romanji")
+    val titleRomanji: String? = null,
 
-    @SerializedName("url")
-    val url: String?
+    @SerialName("url")
+    val url: String? = null
 )

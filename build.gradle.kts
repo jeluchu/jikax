@@ -15,7 +15,7 @@ repositories {
 }
 
 group = "com.jeluchu.jikax"
-version = "0.9.0"
+version = "0.9.1"
 
 dependencies {
     implementation(libs.bundles.ktor)

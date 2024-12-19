@@ -45,6 +45,13 @@ object Jikax {
         restClient.request("anime/${id}/statistics", AnimeStatistics.serializer()).data
 
     /**
+     * Function to get list of anime episodes
+     * @return A list with all anime episodes.
+     */
+    suspend fun getAnimeEpisodes(id: Int) =
+        restClient.request("anime/${id}/episodes", EpisodesData.serializer()).data
+
+    /**
      * Function to get search animes by name
      * @param title Is a [String] Anime Title.
      * @param type Is a [SearchAnimeType] Available Anime types.
@@ -313,24 +320,4 @@ object Jikax {
 
         return restClient.request(fullEndpoint, Search.serializer())
     }
-
-    /**
-     * Function to get anime stats
-     * @return Information for Anime Statistics.
-     */
-    suspend fun getAnimeStatistics(id: Int) =
-        gson.deserialize<AnimeStatistics>(
-            restClient.request("anime/${id}/statistics"),
-            AnimeStatistics::class.java
-        ).data
-
-    /**
-     * Function to get list of anime episodes
-     * @return A list with all anime episodes.
-     */
-    suspend fun getAnimeEpisodes(id: Int) =
-        gson.deserialize<EpisodesData>(
-            restClient.request("anime/${id}/episodes"),
-            EpisodesData::class.java
-        ).data
 }

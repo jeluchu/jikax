@@ -1,12 +1,14 @@
 package com.jeluchu.jikax.models.episodes
 
-import com.google.gson.annotations.SerializedName
 import com.jeluchu.jikax.models.search.Pagination
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class EpisodesData(
-    @SerializedName("data")
+    @SerialName("data")
     val data: List<EpisodeInfo>?,
 
-    @SerializedName("pagination")
+    @SerialName("pagination")
     val pagination: Pagination?
 )
