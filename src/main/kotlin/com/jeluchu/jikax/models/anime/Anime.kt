@@ -13,5 +13,5 @@ data class Anime(
      * Data for anime requested.
      */
     @SerialName("data")
-    val data: AnimeData
+    val data: AnimeData? = null
 )
