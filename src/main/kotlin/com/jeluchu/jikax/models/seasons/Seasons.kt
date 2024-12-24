@@ -13,11 +13,11 @@ data class Seasons(
      * Pagination info for request
      */
     @SerialName("pagination")
-    val pagination: Pagination,
+    val pagination: Pagination? = null,
 
     /**
      * Data list of all anime found.
      */
     @SerialName("data")
-    val data: List<SeasonInfo>
+    val data: List<SeasonInfo>? = null
 )

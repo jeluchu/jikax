@@ -12,5 +12,5 @@ data class Staff(
      * Data list of all staff found.
      */
     @SerialName("data")
-    val data: List<StaffInfo>
+    val data: List<StaffInfo>? = null
 )

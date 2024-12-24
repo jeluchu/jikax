@@ -7,8 +7,8 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class EpisodesData(
     @SerialName("data")
-    val data: List<EpisodeInfo>?,
+    val data: List<EpisodeInfo>? = null,
 
     @SerialName("pagination")
-    val pagination: Pagination?
+    val pagination: Pagination? = null
 )

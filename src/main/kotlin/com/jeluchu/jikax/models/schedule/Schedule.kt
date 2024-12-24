@@ -14,11 +14,11 @@ data class Schedule(
      * Pagination info for request
      */
     @SerialName("pagination")
-    val pagination: Pagination,
+    val pagination: Pagination? = null,
 
     /**
      * Data for anime requested.
      */
     @SerialName("data")
-    val data: List<AnimeData>
+    val data: List<AnimeData>? = null
 )
